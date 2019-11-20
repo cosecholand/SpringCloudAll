@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.w3cjava.dao.UserDao">
+	<sql id="testColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.age AS "age"
+	</sql>
+	
+	<sql id="testJoins">
+	</sql>
+	<!-- 查询所有user -->
+     <select id="findByName" resultType="com.w3cjava.entity.User">
+            select 
+				<include refid="testColumns"/>
+			 from user a 
+			 WHERE a.name = #{name}
+     </select>  
+     
+	<!-- 查询所有user -->
+     <select id="findAll" resultType="com.w3cjava.entity.User">
+            select 
+				<include refid="testColumns"/>
+			 from user a 
+     </select>       
+         
+	<insert id="insert">
+		INSERT INTO user(
+			name,
+			age
+		) VALUES (
+			#{name},
+			#{age}
+			)
+	</insert>
+	
+	<insert id="insertByMap">
+		INSERT INTO user(
+			name,
+			age
+		) VALUES (
+			#{name,jdbcType=VARCHAR},
+			#{age,jdbcType=INTEGER}
+			)
+	</insert>
+	<update id="update">
+		UPDATE user SET age=#{age} WHERE name=#{name}
+	</update>
+	<delete id="delete">
+		DELETE FROM user WHERE id =#{id}
+	</delete>	
+</mapper>
