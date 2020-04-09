@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.w3cjava.modules.user.dao.UserDao">
+	<sql id="testColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.age AS "age"
+	</sql>
+	
+	<sql id="testJoins">
+	</sql>
+	<!-- 查询所有user -->
+     <select id="getSlaveAllUser" resultType="com.w3cjava.modules.user.entity.User">
+            select 
+				<include refid="testColumns"/>
+			 from user a
+     </select>
+     <select id="getMasterAllUser" resultType="com.w3cjava.modules.user.entity.User">
+            select 
+            	<include refid="testColumns"/>  
+            from user a
+     </select>       
+	<insert id="insertMaster">
+		INSERT INTO user(
+			id,
+			name,
+			age
+		) VALUES (
+			#{id},
+			#{name},
+			#{age}
+		)
+	</insert>
+	<insert id="insertSlave">
+		INSERT INTO user(
+			id,
+			name,
+			age
+		) VALUES (
+			#{id},
+			#{name},
+			#{age}
+		)
+	</insert>	
+</mapper>
