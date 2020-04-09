@@ -8,3 +8,4 @@
 
 #### [SpringBoot：3.SpringBoot使用Spring-data-jpa实现数据库访问](https://blog.csdn.net/ssmark/article/details/103159170)  
 #### [SpringBoot：4.SpringBoot整合Mybatis实现数据库访问](https://blog.csdn.net/ssmark/article/details/103162456)
+#### [SpringBoot：5.SpringBoot+Mybatis多数据源配置实现](https://blog.csdn.net/ssmark/article/details/105411455)
